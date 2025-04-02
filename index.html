@@ -6,6 +6,32 @@
     <title>CSINT Tools</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('contextmenu', function (event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.keyCode === 123 ||
+                (event.ctrlKey && event.shiftKey && event.keyCode === 73) ||
+                (event.ctrlKey && event.keyCode === 85)
+            ) {
+                event.preventDefault();
+            }
+        });
+
+        function disableDevTools() {
+            setInterval(function () {
+                const devTools = /./;
+                devTools.toString = function () {
+                    console.clear();
+                };
+                console.log('%c', devTools);
+            }, 1000);
+        }
+
+        disableDevTools();
+    </script>
 </head>
 <body>
     <header>

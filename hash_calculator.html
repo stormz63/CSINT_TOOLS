@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSINT Tools</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>CSINT-Tools | Hash Calculator</title>
+    <link rel="stylesheet" href="/FrontEnd/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+
     <script>
         document.addEventListener('contextmenu', function (event) {
             event.preventDefault();
@@ -32,29 +33,24 @@
 
         disableDevTools();
     </script>
+
 </head>
 <body>
-    <header>
-        <h1>CSINT Tools</h1>
-        <p>Cybersecurity Intelligence Tools and Resources</p>
-    </header>
+    <div class="container">
+        <h1>Hash Calculator</h1>
+        
+        <label for="input-text">Enter Text:</label>
+        <input type="text" id="input-text" placeholder="Enter text to hash" />
 
-    <div class="tool-container">
-        <div class="tool-item">
-            <a href="/FrontEnd/Tools/hash_calculator.html">
-                <button class="tool-btn calc">Hash Calculator</button>
-            </a>
-        </div>
-        <div class="tool-item">
-            <a href="/FrontEnd/Tools/password_creator.html">
-                <button class="tool-btn pg">Password Generator</button>
-            </a>
-        </div>
-        <div>
-            <a href="thm_stats.html">
-                <button class="thms">My TryHackMe Stats</button>
-            </a>
+        <button id="calculate-btn">Calculate Hash</button>
+
+        <h2>Hashes:</h2>
+        <div id="hash-results">
+            <p><strong>SHA-1:</strong> <span id="sha1-hash"></span></p>
+            <p><strong>SHA-256:</strong> <span id="sha256-hash"></span></p>
         </div>
     </div>
+
+    <script src="/BackEnd/hash.js"></script>
 </body>
 </html>
