@@ -105,6 +105,13 @@ footer {
     margin-top: 450px;
 }
 
+.enter:hover{
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: black;
+}
+
 img {
     max-width: 100%;
     height: auto;

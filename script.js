@@ -1,5 +1,5 @@
 document.getElementById("csintForm").addEventListener("submit", function(event) {
-    event.preventDefault();  // Prevent default form submission
+    event.preventDefault();
 
     const ipAddress = document.getElementById("ipAddress").value;
 
@@ -8,7 +8,6 @@ document.getElementById("csintForm").addEventListener("submit", function(event) 
         return;
     }
 
-    // Send the request to the backend
     fetch(`/analyze-ip/${ipAddress}`)
         .then(response => response.json())
         .then(data => {
