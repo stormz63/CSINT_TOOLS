@@ -110,6 +110,7 @@ footer {
     cursor: pointer;
     transition: all 0.3s ease;
     background-color: black;
+    transform: scale(1.05);
 }
 
 img {
@@ -204,4 +205,29 @@ img {
 .gb
 {
     margin-top: 7px;
+}
+
+.search-btn
+{
+    margin-top: 5px;
+}
+
+.intel
+{
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    background-color: purple;
+    box-shadow: 0 0 10px darkblue;
+}
+
+.intel:hover
+{
+    transition: all 0.3s ease;
+        transform: scale(1.05);
 }
