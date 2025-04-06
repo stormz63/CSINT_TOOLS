@@ -229,5 +229,30 @@ img {
 .intel:hover
 {
     transition: all 0.3s ease;
-        transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.ip
+{
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 300px;
+    margin: 10px;
+    background-color: purple;
+    box-shadow: 0 0 10px darkblue;
+}
+
+.ip:hover
+{
+    transition: all 0.3s ease;
+    transform: scale(1.05);
+}
+
+.searchip
+{
+    margin-top: 10px;
 }

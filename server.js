@@ -1,20 +1,29 @@
-const express = require("express");
+const express = require('express');
+const dns = require('dns');
+const path = require('path');
+
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-app.use(express.static("public"));
+// Serve frontend
+app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.get("/analyze-ip/:ip", (req, res) => {
-    const ip = req.params.ip;
+// DNS API route
+app.get('/api/dns', (req, res) => {
+  const domain = req.query.domain;
 
-    const result = {
-        ip: ip,
-        status: "safe",
-    };
+  if (!domain) {
+    return res.status(400).json({ error: 'No domain provided' });
+  }
 
-    res.json(result);
+  dns.lookup(domain, (err, address, family) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json({ address, family });
+  });
 });
 
-app.listen(port, () => {
-    console.log(`CSINT Tools app listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });
