@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DNS Lookup</ti tle>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <h1>DNS Lookup</h1>
+
+  <label for="domain">Enter domain:</label>
+  <input type="text" id="domain" placeholder="example.com">
+  <button onclick="lookupDNS()">Lookup</button>
+
+  <div class="result" id="result"></div>
+  <div class="error" id="error"></div>
+
+  <script>
+    async function lookupDNS() {
+      const domain = document.getElementById("domain").value.trim();
+      const resultDiv = document.getElementById("result");
+      const errorDiv = document.getElementById("error");
+
+      resultDiv.textContent = "";
+      errorDiv.textContent = "";
+
+      if (!domain) {
+        errorDiv.textContent = "Please enter a domain name.";
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/dns?domain=${encodeURIComponent(domain)}`);
+        const data = await res.json();
+
+        if (res.ok) {
+          resultDiv.textContent = `${domain} resolved to IP: ${data.address}`;
+        } else {
+          errorDiv.textContent = `Error: ${data.error}`;
+        }
+      } catch (err) {
+        errorDiv.textContent = `Network error: ${err.message}`;
+      }
+    }
+  </script>
+</body>
+</html>
